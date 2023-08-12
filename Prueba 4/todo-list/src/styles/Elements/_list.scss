@@ -1,0 +1,43 @@
+div.task-list{
+    width: 100%;
+    min-height: 100%;
+    overflow-y: scroll;
+    background: linear-gradient(220.55deg, #8FFF85 0%, #39A0FF 100%);
+
+    & > .div-ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        & > .list-item {
+            width: 100%;
+            height: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #fff;
+            cursor: pointer;
+
+            &:hover {
+                background: linear-gradient(220.55deg, #33c027 0%, #3571aa 100%);
+            }
+
+            & > span{
+                font-size: 2em;
+            }
+
+            & .check{
+                scale: 2;
+            }
+        }
+    }
+}
+
+
+
+.checked {
+    text-decoration: line-through;
+}
+

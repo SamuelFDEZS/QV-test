@@ -1,0 +1,49 @@
+div.form-box{
+    width: 32%;
+    min-height: 100%;
+    border: 3px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(220.55deg, #8A88FB 0%, #D079EE 100%);
+    & > .task-name{
+        width: 80%;
+        height: 8%;
+        font-size: 1.3em;
+        margin-top: 40%;
+    }
+
+    & > .add{
+        background-color:#22a7db ;
+        border: 0;
+        width: 60%;
+        height: 8%;
+        border-radius: 30px;
+        margin-top: 20%;
+        transition: 0.3s;
+        color: #fff;
+        font-size: 1.2em;
+
+        &:hover{
+            background-color:#2892bc
+        }
+
+        &:active{
+            scale: 0.9;
+        }
+    }
+
+    & > .form-title{
+        font-size: 1.8em;
+        margin-top: 10%;
+        color: #fff;
+    }
+
+
+}
+
+p.error-field{
+    color: red;
+    font-size: 1.2em;
+    margin-top: 5%;
+}

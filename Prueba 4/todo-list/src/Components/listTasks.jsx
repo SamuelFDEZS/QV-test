@@ -1,31 +1,23 @@
 import { useState } from "react"
-
-const ListTasks = ({taskList, setTaskList}) => {
+const ListTasks = ({ taskList, setTaskList }) => {
 
     const [checkedTasks, setCheckedTasks] = useState([])
-    const [listClass, setListClass] = useState("")
+
+
     const handleCheck = (task) => {
 
-        console.log(task)
         const updatedCheckedList = checkedTasks.includes(task) ? checkedTasks.filter((checkedTask) => checkedTask !== task) : [...checkedTasks, task]
 
         setCheckedTasks(updatedCheckedList)
 
         const updatedTaskList = taskList.map((t) => {
-            if (t === task){
-                debugger
+            if (t === task) {
                 t.state = updatedCheckedList.includes(task) ? "Completed" : "Pending"
             }
             return t
         })
-        setTaskList = updatedTaskList
 
-        if(task.state === "Completed") {
-            setListClass("list-item checked")
-        } else {
-            setListClass("list-item");
-            console.log(listClass)
-        }
+        setTaskList = updatedTaskList
 
         console.log(checkedTasks)
         console.log(taskList)
@@ -35,14 +27,23 @@ const ListTasks = ({taskList, setTaskList}) => {
         setTaskList(taskList.filter((t) => t !== task))
         console.log(task)
     }
-    return(
+    return (
         <div className="task-list">
-        <ul className="div-ul">
-            {taskList.map((task, i) => {
-                return (
-                    <li key={i} className={listClass}> <input type="checkbox" checked = {checkedTasks.includes(task)} onChange={() => handleCheck(task)}/> {task.name} <button type="button" onClick={() => deleteTask(task)}>-</button></li>
-                )
-            })}
+            <ul className="div-ul">
+                {taskList.map((task, i) => {
+                    const isChecked = checkedTasks.includes(task);
+                    console.log(isChecked)
+                    const taskClass = isChecked ? "list-item checked" : "list-item"
+                    return (
+                        <li className="list-item">
+                            <input type="checkbox" className ="check" checked={checkedTasks.includes(task)} onChange={() => handleCheck(task)} />
+                            <span key={i} className={taskClass}>{task.name}
+                            </span>
+
+                            <button type="button" onClick={() => deleteTask(task)}>-</button>
+                        </li>
+                    )
+                })}
             </ul>
         </div>
     )
